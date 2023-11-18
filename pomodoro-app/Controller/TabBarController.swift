@@ -14,16 +14,19 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
         
         // Создайте экземпляры ваших контроллеров
-        let firstViewController = ViewController()
-        let secondViewController = SecondViewController()
+        let firstViewController = TimerViewController()
+        let secondViewController = TaskManagerViewController()
+        let thirdViewController = SettingsViewController()
         
         // Установите их в соответствующие элементы таб-бара
-        let firstTabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
+        let firstTabBarItem = UITabBarItem(title: "", image: UIImage(named: "timer"), tag: 0)
         firstViewController.tabBarItem = firstTabBarItem
         
-        let secondTabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 1)
+        let secondTabBarItem = UITabBarItem(title: "", image: UIImage(named: "task"), tag: 1)
         secondViewController.tabBarItem = secondTabBarItem
+        let thirdTabBarItem = UITabBarItem(title: "", image: UIImage(named: "settings"), tag: 2)
+        thirdViewController.tabBarItem = thirdTabBarItem
         
-        viewControllers = [firstViewController, secondViewController]
+        viewControllers = [firstViewController, secondViewController, thirdViewController]
     }
 }
