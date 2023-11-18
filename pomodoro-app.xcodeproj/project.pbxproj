@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		AC6B15C22AF92CE1008EE492 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B15C12AF92CE1008EE492 /* AppDelegate.swift */; };
 		AC6B15C42AF92CE1008EE492 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B15C32AF92CE1008EE492 /* SceneDelegate.swift */; };
-		AC6B15C62AF92CE1008EE492 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B15C52AF92CE1008EE492 /* ViewController.swift */; };
-		AC6B15C92AF92CE1008EE492 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6B15C72AF92CE1008EE492 /* Main.storyboard */; };
+		AC6B15C62AF92CE1008EE492 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B15C52AF92CE1008EE492 /* HomePageViewController.swift */; };
 		AC6B15CB2AF92CE3008EE492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6B15CA2AF92CE3008EE492 /* Assets.xcassets */; };
 		AC6B15CE2AF92CE3008EE492 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6B15CC2AF92CE3008EE492 /* LaunchScreen.storyboard */; };
+		ACEDF6572B091B99007EC631 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF6562B091B99007EC631 /* SettingsViewController.swift */; };
+		ACEDF6592B091BE1007EC631 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF6582B091BE1007EC631 /* TabBarController.swift */; };
+		ACEDF65B2B091F2D007EC631 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF65A2B091F2D007EC631 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC6B15BE2AF92CE1008EE492 /* pomodoro-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pomodoro-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6B15C12AF92CE1008EE492 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6B15C32AF92CE1008EE492 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC6B15C52AF92CE1008EE492 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC6B15C82AF92CE1008EE492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC6B15C52AF92CE1008EE492 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		AC6B15CA2AF92CE3008EE492 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC6B15CD2AF92CE3008EE492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC6B15CF2AF92CE3008EE492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEDF6562B091B99007EC631 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		ACEDF6582B091BE1007EC631 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		ACEDF65A2B091F2D007EC631 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +62,39 @@
 			children = (
 				AC6B15C12AF92CE1008EE492 /* AppDelegate.swift */,
 				AC6B15C32AF92CE1008EE492 /* SceneDelegate.swift */,
-				AC6B15C52AF92CE1008EE492 /* ViewController.swift */,
-				AC6B15C72AF92CE1008EE492 /* Main.storyboard */,
+				AC8D3B7B2B078B0C008410A8 /* Model */,
+				AC8D3B7C2B078B16008410A8 /* View */,
+				AC8D3B7D2B078B1D008410A8 /* Controller */,
 				AC6B15CA2AF92CE3008EE492 /* Assets.xcassets */,
 				AC6B15CC2AF92CE3008EE492 /* LaunchScreen.storyboard */,
 				AC6B15CF2AF92CE3008EE492 /* Info.plist */,
 			);
 			path = "pomodoro-app";
+			sourceTree = "<group>";
+		};
+		AC8D3B7B2B078B0C008410A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC8D3B7C2B078B16008410A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC6B15C52AF92CE1008EE492 /* HomePageViewController.swift */,
+				ACEDF6562B091B99007EC631 /* SettingsViewController.swift */,
+				ACEDF65A2B091F2D007EC631 /* TimerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC8D3B7D2B078B1D008410A8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ACEDF6582B091BE1007EC631 /* TabBarController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +157,6 @@
 			files = (
 				AC6B15CE2AF92CE3008EE492 /* LaunchScreen.storyboard in Resources */,
 				AC6B15CB2AF92CE3008EE492 /* Assets.xcassets in Resources */,
-				AC6B15C92AF92CE1008EE492 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +167,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC6B15C62AF92CE1008EE492 /* ViewController.swift in Sources */,
+				AC6B15C62AF92CE1008EE492 /* HomePageViewController.swift in Sources */,
 				AC6B15C22AF92CE1008EE492 /* AppDelegate.swift in Sources */,
+				ACEDF6592B091BE1007EC631 /* TabBarController.swift in Sources */,
 				AC6B15C42AF92CE1008EE492 /* SceneDelegate.swift in Sources */,
+				ACEDF65B2B091F2D007EC631 /* TimerViewController.swift in Sources */,
+				ACEDF6572B091B99007EC631 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC6B15C72AF92CE1008EE492 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC6B15C82AF92CE1008EE492 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC6B15CC2AF92CE3008EE492 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,7 +315,6 @@
 				INFOPLIST_FILE = "pomodoro-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,7 +341,6 @@
 				INFOPLIST_FILE = "pomodoro-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
