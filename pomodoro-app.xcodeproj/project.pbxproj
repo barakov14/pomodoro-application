@@ -15,6 +15,7 @@
 		ACEDF6572B091B99007EC631 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF6562B091B99007EC631 /* SettingsViewController.swift */; };
 		ACEDF6592B091BE1007EC631 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF6582B091BE1007EC631 /* TabBarController.swift */; };
 		ACEDF65B2B091F2D007EC631 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF65A2B091F2D007EC631 /* TimerViewController.swift */; };
+		ACEDF65F2B0A0EC1007EC631 /* CustomTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF65E2B0A0EC1007EC631 /* CustomTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ACEDF6562B091B99007EC631 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ACEDF6582B091BE1007EC631 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		ACEDF65A2B091F2D007EC631 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		ACEDF65E2B0A0EC1007EC631 /* CustomTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		AC8D3B7B2B078B0C008410A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ACEDF65E2B0A0EC1007EC631 /* CustomTheme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACEDF65F2B0A0EC1007EC631 /* CustomTheme.swift in Sources */,
 				AC6B15C62AF92CE1008EE492 /* TaskManagerViewController.swift in Sources */,
 				AC6B15C22AF92CE1008EE492 /* AppDelegate.swift in Sources */,
 				ACEDF6592B091BE1007EC631 /* TabBarController.swift in Sources */,
