@@ -144,6 +144,6 @@ class TimerViewController: UIViewController {
         updateUI()
         isRestTime = !isRestTime
         timer?.invalidate()
+        print("Hello world!")
     }
 }
-
