@@ -11,12 +11,13 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self as? any UITabBarControllerDelegate
         view.backgroundColor = .white
         let customTabBar = CustomTabBar()
         setValue(customTabBar, forKey: "tabBar")
-        tabBar.tintColor = .purple
+        tabBar.tintColor = .yellow
         tabBar.unselectedItemTintColor = .white
-        tabBar.backgroundColor = .black
+        tabBar.backgroundColor = .red
         
         // Создайте экземпляры ваших контроллеров
         let firstViewController = TimerViewController()
@@ -33,8 +34,13 @@ class TabBarController: UITabBarController {
         thirdViewController.tabBarItem = thirdTabBarItem
         
         viewControllers = [firstViewController, secondViewController, thirdViewController]
-        
     }
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+            if let timerViewController = viewController as? TimerViewController {
+                // Восстановление состояния таймера при переключении на таб с таймером
+                timerViewController.restoreTimerState()
+            }
+        }
 }
 extension UIColor {
     convenience init(hex: UInt, alpha: CGFloat = 1.0) {
