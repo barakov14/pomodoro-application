@@ -20,8 +20,8 @@
 		ACFD7C752B0FD50100ED4D11 /* AppThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C742B0FD50100ED4D11 /* AppThemeViewController.swift */; };
 		ACFD7C772B0FD7D600ED4D11 /* CustomizeTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C762B0FD7D600ED4D11 /* CustomizeTimerViewController.swift */; };
 		ACFD7C792B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C782B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift */; };
-		ACFD7C7B2B0FD86700ED4D11 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C7A2B0FD86700ED4D11 /* ContactUsViewController.swift */; };
 		ACFD7C7D2B1098D300ED4D11 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C7C2B1098D300ED4D11 /* TimerManager.swift */; };
+		ACFD7C842B10F34200ED4D11 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C832B10F34200ED4D11 /* ContactUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,8 @@
 		ACFD7C742B0FD50100ED4D11 /* AppThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeViewController.swift; sourceTree = "<group>"; };
 		ACFD7C762B0FD7D600ED4D11 /* CustomizeTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeTimerViewController.swift; sourceTree = "<group>"; };
 		ACFD7C782B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeSoundsViewController.swift; sourceTree = "<group>"; };
-		ACFD7C7A2B0FD86700ED4D11 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		ACFD7C7C2B1098D300ED4D11 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		ACFD7C832B10F34200ED4D11 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 				ACFD7C742B0FD50100ED4D11 /* AppThemeViewController.swift */,
 				ACFD7C762B0FD7D600ED4D11 /* CustomizeTimerViewController.swift */,
 				ACFD7C782B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift */,
-				ACFD7C7A2B0FD86700ED4D11 /* ContactUsViewController.swift */,
+				ACFD7C832B10F34200ED4D11 /* ContactUsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -211,12 +211,12 @@
 				AC6B15C22AF92CE1008EE492 /* AppDelegate.swift in Sources */,
 				ACFD7C7D2B1098D300ED4D11 /* TimerManager.swift in Sources */,
 				ACEDF6592B091BE1007EC631 /* TabBarController.swift in Sources */,
+				ACFD7C842B10F34200ED4D11 /* ContactUsViewController.swift in Sources */,
 				AC6B15C42AF92CE1008EE492 /* SceneDelegate.swift in Sources */,
 				ACFD7C772B0FD7D600ED4D11 /* CustomizeTimerViewController.swift in Sources */,
 				ACEDF65B2B091F2D007EC631 /* TimerViewController.swift in Sources */,
 				ACEDF6572B091B99007EC631 /* SettingsViewController.swift in Sources */,
 				ACFD7C752B0FD50100ED4D11 /* AppThemeViewController.swift in Sources */,
-				ACFD7C7B2B0FD86700ED4D11 /* ContactUsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,7 +50,7 @@ class TimerViewController: UIViewController {
         view.addSubview(restartButton)
         view.addSubview(skipButton)
         view.addSubview(imageView)
-        
+        restartButtonTapped()
     
         if(isRestTime) {
             imageView.image = UIImage(named: "sleep")
