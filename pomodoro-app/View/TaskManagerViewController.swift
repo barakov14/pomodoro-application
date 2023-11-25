@@ -1,6 +1,6 @@
 import UIKit
 
-struct Task {
+struct Task: Codable {
     var title: String
     var description: String
     var dueDate: Date
@@ -77,42 +77,65 @@ class TaskManagerViewController: UIViewController, UITableViewDataSource, UITabl
             ])
 
             NotificationCenter.default.addObserver(self, selector: #selector(taskCellCompletionButtonTapped(_:)), name: Notification.Name("TaskCellCompletionButtonTapped"), object: nil)
+            loadTasks()
+        }
+    private func saveTasks() {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(tasks) {
+                UserDefaults.standard.set(encoded, forKey: "tasks")
+            }
+        }
+
+        // Метод для загрузки задач из UserDefaults
+        private func loadTasks() {
+            if let savedTasks = UserDefaults.standard.object(forKey: "tasks") as? Data {
+                let decoder = JSONDecoder()
+                if let loadedTasks = try? decoder.decode([Task].self, from: savedTasks) {
+                    tasks = loadedTasks
+                    tableView.reloadData() // Обновляем таблицу после загрузки
+                }
+            }
         }
 
         // Action method for the add task button tap event
-        @objc func addTaskButtonTapped() {
-            // Present the AddTaskViewController to allow the user to set title, description, and due date
-            let addTaskVC = AddTaskViewController { [weak self] title, description, dueDate in
-                // Check if a task with the same title already exists
-                if self?.tasks.first(where: { $0.title == title }) == nil {
-                    // Create a new task with the provided values
-                    let newTask = Task(title: title, description: description, dueDate: dueDate, isCompleted: false)
-
-                    // Add the new task to the array
-                    self?.tasks.append(newTask)
-
-                    // Reload the table view to reflect the changes
-                    self?.tableView.reloadData()
-
-                } else {
-                    // Show an alert if a task with the same title already exists
-                    let alert = UIAlertController(title: "Duplicate Title", message: "A task with the same title already exists.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self?.present(alert, animated: true, completion: nil)
-                }
+    @objc func addTaskButtonTapped() {
+        // Present the AddTaskViewController to allow the user to set title, description, and due date
+        let addTaskVC = AddTaskViewController { [weak self] title, description, dueDate in
+            // Check if a task with the same title already exists
+            if self?.tasks.first(where: { $0.title == title }) == nil {
+                // Create a new task with the provided values
+                let newTask = Task(title: title, description: description, dueDate: dueDate, isCompleted: false)
+                
+                // Add the new task to the array
+                self?.tasks.append(newTask)
+                
+                // Reload the table view to reflect the changes
+                self?.tableView.reloadData()
+                
+                // Сохраняем задачи после добавления новой
+                self?.saveTasks()
+                
+            } else {
+                // Show an alert if a task with the same title already exists
+                let alert = UIAlertController(title: "Duplicate Title", message: "A task with the same title already exists.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
             }
-            present(addTaskVC, animated: true, completion: nil)
         }
+        present(addTaskVC, animated: true, completion: nil)
+    }
 
     // Action method for the delete button tap event
     @objc func deleteTaskButtonTapped() {
-        // Get the selected index path
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            // Remove the task from the array
-            tasks.remove(at: selectedIndexPath.row)
-            // Reload the table view to reflect the changes
-            tableView.reloadData()
-            
+                    // Remove the task from the array
+                    tasks.remove(at: selectedIndexPath.row)
+                    // Reload the table view to reflect the changes
+                    tableView.reloadData()
+
+                    // Сохраняем задачи после удаления
+                    saveTasks()
+
         } else {
             // Show an alert if no row is selected
             let alert = UIAlertController(title: "No Task Selected", message: "Please select a task to delete.", preferredStyle: .alert)
@@ -124,22 +147,25 @@ class TaskManagerViewController: UIViewController, UITableViewDataSource, UITabl
     // Action method for the edit button tap event
     @objc func editTaskButtonTapped() {
         // Get the selected index path
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            // Present the EditTaskViewController to allow the user to edit title, description, and due date
-            let editTaskVC = EditTaskViewController(task: tasks[selectedIndexPath.row]) { [weak self] title, description, dueDate in
-                // Update the task with the edited values
-                self?.tasks[selectedIndexPath.row] = Task(title: title, description: description, dueDate: dueDate, isCompleted: false)
+                if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                    // Present the EditTaskViewController to allow the user to edit title, description, and due date
+                    let editTaskVC = EditTaskViewController(task: tasks[selectedIndexPath.row]) { [weak self] title, description, dueDate in
+                        // Update the task with the edited values
+                        self?.tasks[selectedIndexPath.row] = Task(title: title, description: description, dueDate: dueDate, isCompleted: false)
 
-                // Reload the table view to reflect the changes
-                self?.tableView.reloadData()
-            }
-            present(editTaskVC, animated: true, completion: nil)
-        } else {
-            // Show an alert if no row is selected
-            let alert = UIAlertController(title: "No Task Selected", message: "Please select a task to edit.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
+                        // Reload the table view to reflect the changes
+                        self?.tableView.reloadData()
+
+                        // Сохраняем задачи после редактирования
+                        self?.saveTasks()
+                    }
+                    present(editTaskVC, animated: true, completion: nil)
+                } else {
+                    // Show an alert if no row is selected
+                    let alert = UIAlertController(title: "No Task Selected", message: "Please select a task to edit.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                }
     }
     private func createButton(title: String, action: Selector) -> UIButton {
             let button = UIButton(type: .system)
@@ -195,6 +221,8 @@ class TaskManagerViewController: UIViewController, UITableViewDataSource, UITabl
         guard let cell = notification.object as? TaskCell else { return }
         let index = cell.completionButton.tag
         tasks[index].isCompleted.toggle()
+        tableView.reloadData()
+        saveTasks()
 
         // Update the button appearance with animation
         UIView.animate(withDuration: 0.3) {
@@ -270,9 +298,12 @@ class EditTaskViewController: UIViewController {
         // Call the completion handler to edit the task in the main view controller
         completionHandler?(title, description, dueDate)
         
+        
         // Dismiss the EditTaskViewController
         dismiss(animated: true, completion: nil)
+        
     }
+    
 }
 
 // Create a separate view controller for adding tasks
