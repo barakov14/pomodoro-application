@@ -15,7 +15,7 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
         let customTabBar = CustomTabBar()
         setValue(customTabBar, forKey: "tabBar")
-        tabBar.tintColor = .yellow
+        tabBar.tintColor = .lightGray
         tabBar.unselectedItemTintColor = .white
         tabBar.backgroundColor = .red
         

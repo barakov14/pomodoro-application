@@ -22,6 +22,7 @@ class TimerViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "play"), for: .normal)
+        button.tintColor = .red
         button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -30,6 +31,7 @@ class TimerViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "restart"), for: .normal)
+        button.tintColor = .red
         button.addTarget(self, action: #selector(restartButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -37,6 +39,7 @@ class TimerViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "skip"), for: .normal)
+        button.tintColor = .red
         button.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -102,8 +105,8 @@ class TimerViewController: UIViewController {
     }
     
     var timer: Timer?
-    private var workTime = 20
-    private var restTime = 10
+    static var workTime = 10
+    static var restTime = 5
     private var isRestTime = false
     private var isStarted = false
     var progress: Float = 0.0
@@ -123,9 +126,9 @@ class TimerViewController: UIViewController {
         basicAnimation.toValue = 1.0
         
         if isRestTime {
-            basicAnimation.duration = Double(restTime) * (1.0 - animationState)
+            basicAnimation.duration = Double(TimerViewController.restTime) * (1.0 - animationState)
         } else {
-            basicAnimation.duration = Double(workTime) * (1.0 - animationState)
+            basicAnimation.duration = Double(TimerViewController.workTime) * (1.0 - animationState)
         }
         
         basicAnimation.fillMode = .forwards
@@ -148,10 +151,10 @@ class TimerViewController: UIViewController {
     
     func switchTime() {
         if(isRestTime) {
-            countdownSeconds = workTime
+            countdownSeconds = TimerViewController.workTime
             imageView.image = UIImage(named: "work")
         } else {
-            countdownSeconds = restTime
+            countdownSeconds = TimerViewController.restTime
             imageView.image = UIImage(named: "sleep")
         }
         updateUI()
@@ -212,12 +215,28 @@ class TimerViewController: UIViewController {
                 
                 // Check if the timer has reached 0
                 if self.countdownSeconds == 0 {
-                    self.timer?.invalidate()
                     self.switchTime()
-                    self.switchStartToStop()
                     self.animationStop()
-                    self.animationState = 0.0
                     self.shapeLayer.removeAnimation(forKey: "urBasic")
+                    if СustomizeTimerViewController.isAutoBreak {
+                        // If auto break is enabled, switch directly to rest time after work time
+                        self.countdownSeconds = TimerViewController.restTime
+                        self.imageView.image = UIImage(named: "sleep")
+                        animationState = 0.0
+                        animationStart()
+                        if(!isRestTime) {
+                            self.timer?.invalidate()
+                            self.switchStartToStop()
+                        }
+                    } else {
+                        // Otherwise, stop the timer
+                        self.timer?.invalidate()
+                        self.switchStartToStop()
+                        self.animationStop()
+                        self.animationState = 0.0
+                        self.shapeLayer.removeAnimation(forKey: "urBasic")
+                        self.scheduleNotification()
+                    }
                 }
             }
             animationStart()
@@ -231,9 +250,9 @@ class TimerViewController: UIViewController {
     @objc func restartButtonTapped() {
           // Reset animation state
         if(isRestTime) {
-            countdownSeconds = restTime
+            countdownSeconds = TimerViewController.restTime
         } else {
-            countdownSeconds = workTime
+            countdownSeconds = TimerViewController.workTime
         }
         updateUI()
         timer?.invalidate()
@@ -310,5 +329,20 @@ class TimerViewController: UIViewController {
             
             // Wait for the signal to proceed after the delay
             semaphore.wait()
+        }
+    func scheduleNotification() {
+            let content = UNMutableNotificationContent()
+            content.title = "Timer Stopped"
+            content.body = "Your timer has completed. Take a break!"
+            content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "not1.mp3"))
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: "timerStopped", content: content, trigger: trigger)
+
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error.localizedDescription)")
+                }
+            }
         }
 }

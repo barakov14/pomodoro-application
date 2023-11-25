@@ -17,11 +17,12 @@
 		ACEDF65B2B091F2D007EC631 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF65A2B091F2D007EC631 /* TimerViewController.swift */; };
 		ACEDF65F2B0A0EC1007EC631 /* CustomTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDF65E2B0A0EC1007EC631 /* CustomTheme.swift */; };
 		ACFD7C722B0FD17F00ED4D11 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C712B0FD17F00ED4D11 /* SettingsTableViewCell.swift */; };
-		ACFD7C752B0FD50100ED4D11 /* AppThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C742B0FD50100ED4D11 /* AppThemeViewController.swift */; };
 		ACFD7C772B0FD7D600ED4D11 /* CustomizeTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C762B0FD7D600ED4D11 /* CustomizeTimerViewController.swift */; };
 		ACFD7C792B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C782B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift */; };
 		ACFD7C7D2B1098D300ED4D11 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C7C2B1098D300ED4D11 /* TimerManager.swift */; };
 		ACFD7C842B10F34200ED4D11 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C832B10F34200ED4D11 /* ContactUsViewController.swift */; };
+		ACFD7C8A2B11585700ED4D11 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFD7C892B11585700ED4D11 /* StyleManager.swift */; };
+		ACFD7C8C2B1163C300ED4D11 /* not1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACFD7C8B2B1163C300ED4D11 /* not1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +38,12 @@
 		ACEDF65A2B091F2D007EC631 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		ACEDF65E2B0A0EC1007EC631 /* CustomTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTheme.swift; sourceTree = "<group>"; };
 		ACFD7C712B0FD17F00ED4D11 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		ACFD7C742B0FD50100ED4D11 /* AppThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeViewController.swift; sourceTree = "<group>"; };
 		ACFD7C762B0FD7D600ED4D11 /* CustomizeTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeTimerViewController.swift; sourceTree = "<group>"; };
 		ACFD7C782B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeSoundsViewController.swift; sourceTree = "<group>"; };
 		ACFD7C7C2B1098D300ED4D11 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		ACFD7C832B10F34200ED4D11 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		ACFD7C892B11585700ED4D11 /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
+		ACFD7C8B2B1163C300ED4D11 /* not1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = not1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,7 @@
 		AC6B15B52AF92CE1008EE492 = {
 			isa = PBXGroup;
 			children = (
-				ACFD7C822B10E65100ED4D11 /* gifs */,
+				ACFD7C822B10E65100ED4D11 /* not */,
 				AC6B15C02AF92CE1008EE492 /* pomodoro-app */,
 				AC6B15BF2AF92CE1008EE492 /* Products */,
 			);
@@ -92,6 +94,7 @@
 			children = (
 				ACEDF65E2B0A0EC1007EC631 /* CustomTheme.swift */,
 				ACFD7C7C2B1098D300ED4D11 /* TimerManager.swift */,
+				ACFD7C892B11585700ED4D11 /* StyleManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,7 +122,6 @@
 		ACFD7C732B0FD37200ED4D11 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				ACFD7C742B0FD50100ED4D11 /* AppThemeViewController.swift */,
 				ACFD7C762B0FD7D600ED4D11 /* CustomizeTimerViewController.swift */,
 				ACFD7C782B0FD7EA00ED4D11 /* CustomizeSoundsViewController.swift */,
 				ACFD7C832B10F34200ED4D11 /* ContactUsViewController.swift */,
@@ -127,11 +129,12 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		ACFD7C822B10E65100ED4D11 /* gifs */ = {
+		ACFD7C822B10E65100ED4D11 /* not */ = {
 			isa = PBXGroup;
 			children = (
+				ACFD7C8B2B1163C300ED4D11 /* not1.mp3 */,
 			);
-			path = gifs;
+			path = not;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +197,7 @@
 			files = (
 				AC6B15CE2AF92CE3008EE492 /* LaunchScreen.storyboard in Resources */,
 				AC6B15CB2AF92CE3008EE492 /* Assets.xcassets in Resources */,
+				ACFD7C8C2B1163C300ED4D11 /* not1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +220,7 @@
 				ACFD7C772B0FD7D600ED4D11 /* CustomizeTimerViewController.swift in Sources */,
 				ACEDF65B2B091F2D007EC631 /* TimerViewController.swift in Sources */,
 				ACEDF6572B091B99007EC631 /* SettingsViewController.swift in Sources */,
-				ACFD7C752B0FD50100ED4D11 /* AppThemeViewController.swift in Sources */,
+				ACFD7C8A2B11585700ED4D11 /* StyleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
