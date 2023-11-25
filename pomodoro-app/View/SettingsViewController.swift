@@ -63,11 +63,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let dataCell = ["Customize Timer", "Customize Sound", "Contact Us"]
+        let dataCell = ["Customize Timer", "Contact Us"]
         cell.textLabel?.text = dataCell[indexPath.row]
         return cell
     }
@@ -82,10 +82,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             let viewController1 = СustomizeTimerViewController()
             navigationController?.pushViewController(viewController1, animated: true)
         case 1:
-            // Переход на второй view controller
-            let viewController2 = CustomizeSoundsViewController()
-            navigationController?.pushViewController(viewController2, animated: true)
-        case 2:
             // Переход на третий view controller
             let viewController3 = ContactUsViewController()
             navigationController?.pushViewController(viewController3, animated: true)
